@@ -6,7 +6,7 @@
 <title>Milenices — gerador de assuntos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Outfit:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#000000;
@@ -37,11 +37,11 @@
   body{
     background:var(--paper);
     color:var(--text-light);
-    font-family:'DM Sans', system-ui, sans-serif;
+    font-family:'Outfit', system-ui, sans-serif;
     min-height:100vh;
   }
   h1,.display{
-    font-family:'Bungee', system-ui, sans-serif;
+    font-family:'Outfit', system-ui, sans-serif;
     font-weight:400;
   }
   button{
@@ -141,7 +141,7 @@
     background:var(--btn);
     color:var(--ink);
     border:1.5px solid var(--ink);
-    font-family:'Bungee', system-ui, sans-serif;
+    font-family:'Outfit', system-ui, sans-serif;
     font-weight:600;
     font-size:1.1rem;
     letter-spacing:0.02em;
@@ -175,16 +175,25 @@
     to{transform:translateY(0); opacity:1;}
   }
   .tag{
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    gap:0.4rem;
     font-size:0.78rem;
     font-weight:700;
     text-transform:uppercase;
     letter-spacing:0.14em;
-    color:var(--tag-color, var(--accent));
+    color:#f2d2d5;
     margin-bottom:0.7rem;
   }
+  .flag-img{
+    width:18px;
+    height:auto;
+    border-radius:2px;
+    box-shadow:0 0 0 1px rgba(255,255,255,0.15);
+    vertical-align:middle;
+  }
   .topic{
-    font-family:'Bungee', system-ui, sans-serif;
+    font-family:'Outfit', system-ui, sans-serif;
     font-size:clamp(2.4rem, 11vw, 3.6rem);
     line-height:1.05;
     color:var(--text-light);
@@ -300,7 +309,7 @@
     margin-bottom:0.6rem;
   }
   .timer-clock{
-    font-family:'Bungee', system-ui, sans-serif;
+    font-family:'Outfit', system-ui, sans-serif;
     font-weight:600;
     font-size:clamp(2.4rem, 15vw, 3.8rem);
     margin:0 0 1.4rem;
@@ -378,7 +387,7 @@
     margin-bottom:1rem;
   }
   .drawer-head h2{
-    font-family:'Bungee', system-ui, sans-serif;
+    font-family:'Outfit', system-ui, sans-serif;
     font-size:1.25rem;
     margin:0;
   }
@@ -467,7 +476,7 @@
 <script>
 (function(){
   const categories = [
-    { key:'brasil', label:'Brasil', color:'var(--c-moda)', topics:[
+    { key:'brasil', label:'Brasil', flagCode:'br', color:'var(--c-moda)', topics:[
       { text:'Feijoada', cook:90 },
       { text:'Pão de queijo', cook:25 },
       { text:'Moqueca', cook:40 },
@@ -481,7 +490,7 @@
       { text:'Carne de sol com pirão', cook:70 },
       { text:'Peixada capixaba', cook:60 }
     ]},
-    { key:'italia', label:'Itália', color:'var(--c-beleza)', topics:[
+    { key:'italia', label:'Itália', flagCode:'it', color:'var(--c-beleza)', topics:[
       { text:'Risoto', cook:30 },
       { text:'Lasanha', cook:60 },
       { text:'Tiramisù', cook:20 },
@@ -495,7 +504,7 @@
       { text:'Panettone', cook:240 },
       { text:'Cannoli siciliani', cook:60 }
     ]},
-    { key:'japao', label:'Japão', color:'var(--c-cinema)', topics:[
+    { key:'japao', label:'Japão', flagCode:'jp', color:'var(--c-cinema)', topics:[
       { text:'Sushi', cook:40 },
       { text:'Ramen', cook:60 },
       { text:'Tempura', cook:25 },
@@ -509,7 +518,7 @@
       { text:'Kaiseki simplificado', cook:180 },
       { text:'Gyoza', cook:50 }
     ]},
-    { key:'mexico', label:'México', color:'var(--c-musica)', topics:[
+    { key:'mexico', label:'México', flagCode:'mx', color:'var(--c-musica)', topics:[
       { text:'Tacos al pastor', cook:40 },
       { text:'Guacamole', cook:10 },
       { text:'Tamales', cook:90 },
@@ -523,7 +532,7 @@
       { text:'Mole negro oaxaqueño', cook:150 },
       { text:'Barbacoa', cook:240 }
     ]},
-    { key:'franca', label:'França', color:'var(--c-cultura)', topics:[
+    { key:'franca', label:'França', flagCode:'fr', color:'var(--c-cultura)', topics:[
       { text:'Croissant', cook:45 },
       { text:'Ratatouille', cook:40 },
       { text:'Quiche lorraine', cook:50 },
@@ -537,7 +546,7 @@
       { text:'Croquembouche', cook:180 },
       { text:'Pâté en croûte', cook:240 }
     ]},
-    { key:'tailandia', label:'Tailândia', color:'var(--c-curiosidades)', topics:[
+    { key:'tailandia', label:'Tailândia', flagCode:'th', color:'var(--c-curiosidades)', topics:[
       { text:'Pad thai', cook:20 },
       { text:'Tom yum', cook:25 },
       { text:'Curry verde', cook:30 },
@@ -551,7 +560,7 @@
       { text:'Moo ping marinado', cook:90 },
       { text:'Boat noodles (caldo completo)', cook:120 }
     ]},
-    { key:'peru', label:'Peru', color:'var(--c-comportamento)', topics:[
+    { key:'peru', label:'Peru', flagCode:'pe', color:'var(--c-comportamento)', topics:[
       { text:'Ceviche', cook:15 },
       { text:'Lomo saltado', cook:20 },
       { text:'Causa limeña', cook:30 },
@@ -565,7 +574,7 @@
       { text:'Arroz con pato', cook:75 },
       { text:'Suspiro a la limeña', cook:60 }
     ]},
-    { key:'marrocos', label:'Marrocos', color:'#c8785a', topics:[
+    { key:'marrocos', label:'Marrocos', flagCode:'ma', color:'#c8785a', topics:[
       { text:'Tajine', cook:90 },
       { text:'Couscous', cook:25 },
       { text:'Pastilla', cook:50 },
@@ -630,7 +639,7 @@
     });
   }
 
-  const allDishes = categories.flatMap(c => c.topics.map(t => ({ catLabel: c.label, color: c.color, text: t.text, cook: t.cook })));
+  const allDishes = categories.flatMap(c => c.topics.map(t => ({ catLabel: c.label, flagCode: c.flagCode, color: c.color, text: t.text, cook: t.cook })));
 
   let audioCtx = null;
   function getAudioCtx(){
@@ -682,7 +691,7 @@
     }
     lastResultId = id;
     const dish = cat.topics[topicIdx];
-    return { id, catKey: cat.key, catLabel: cat.label, color: cat.color, text: dish.text, cook: Math.max(dish.cook, 90) };
+    return { id, catKey: cat.key, catLabel: cat.label, flagCode: cat.flagCode, color: cat.color, text: dish.text, cook: Math.max(dish.cook, 90) };
   }
 
   function draw(){
@@ -702,8 +711,7 @@
       tick++;
       const isLast = tick >= totalTicks;
       const show = isLast ? final : allDishes[Math.floor(Math.random() * allDishes.length)];
-      resultCat.textContent = show.catLabel;
-      resultCat.style.setProperty('--tag-color', show.color);
+      resultCat.innerHTML = `<img src="https://flagcdn.com/w20/${show.flagCode}.png" alt="" class="flag-img"> ${show.catLabel}`;
       resultTopic.textContent = show.text;
       playTick();
       if(!isLast){
